@@ -35,7 +35,7 @@ class RAGPipeline:
         # 1. Retrieve
         # -----------------------------
         results = self.retriever.search(question)
-        
+
 
         if (
             "documents" not in results
@@ -62,6 +62,8 @@ class RAGPipeline:
             distances=results["distances"][0]
 
           )
+        print("DOCUMENTS AFTER CONTEXT:", len(documents))
+        print("METADATAS AFTER CONTEXT:", len(metadatas))
 
         if not documents:
 
