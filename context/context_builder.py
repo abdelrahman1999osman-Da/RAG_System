@@ -44,9 +44,12 @@ class ContextBuilder:
                 continue
 
             words = len(document.split())
+            print("CHUNK WORDS:", words)
+            print("WORD BUDGET:", word_budget)
 
             if total_words + words > word_budget:
-                break
+                print(f"SKIPPED CHUNK: {words} words > remaining budget")
+                continue
 
             selected_documents.append(document)
             selected_metadatas.append(metadata)
