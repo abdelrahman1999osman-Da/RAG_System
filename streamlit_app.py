@@ -4,6 +4,8 @@ from app.sidebar import sidebar
 from app.chat import display_chat
 from rag.pipeline import RAGPipeline
 from config.settings import settings
+from build_index import build_index
+from vectorstore.chroma_manager import ChromaManager
 
 
 st.set_page_config(
@@ -24,6 +26,19 @@ def load_css():
 
 load_css()
 
+# ==========================================================
+# Build Vector DB automatically (first run only)
+# ==========================================================
+
+vector_db = ChromaManager()
+
+if vector_db.collection.count() == 0:
+
+    with st.spinner("Building vector database... This may take a minute."):
+
+        build_index()
+
+    st.success("Vector database created successfully.")
 
 st.title("🧪 Chemical Laboratory Safety Assistant")
 

@@ -49,8 +49,7 @@ class Settings(BaseSettings):
     TOP_K: int
     FINAL_TOP_K: int
 
-    GUARDRAILS_THRESHOLD: float
-    DOMAIN_PROFILE_PATH: str
+
 
     # ==========================
     # LLM
