@@ -40,7 +40,7 @@ if vector_db.collection.count() == 0:
 
     st.success("Vector database created successfully.")
 
-st.title("🧪 Chemical Laboratory Safety Assistant")
+st.title("🧪 RAG System v999")
 
 st.markdown(f"""
 ### AI-Powered Retrieval-Augmented Generation (RAG)
