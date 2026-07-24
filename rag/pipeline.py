@@ -35,6 +35,7 @@ class RAGPipeline:
         # 1. Retrieve
         # -----------------------------
         results = self.retriever.search(question)
+        
 
         if (
             "documents" not in results

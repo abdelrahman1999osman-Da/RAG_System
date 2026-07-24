@@ -15,6 +15,9 @@ class ChromaManager:
             name="chemistry_book",
             metadata={"hnsw:space": "cosine"}
         )
+        print("VECTOR DB PATH:", settings.VECTOR_DB_PATH)
+        print("COLLECTION COUNT:", self.collection.count())
+
 
     def add_documents(self, chunks, embedding_model):
 
