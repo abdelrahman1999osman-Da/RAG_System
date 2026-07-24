@@ -28,21 +28,37 @@ class Retriever:
             ]
         )
 
-        # ==========================
-        # Debug
-        # ==========================
+        # ==========================================================
+        # DEBUG
+        # ==========================================================
         print("\n" + "=" * 80)
-        print("RETRIEVAL RESULTS")
+        print("QUERY:")
+        print(query)
         print("=" * 80)
 
-        for i, (meta, distance) in enumerate(
-            zip(results["metadatas"][0], results["distances"][0]),
+        print(f"Retrieved Documents : {len(results['documents'][0])}")
+        print(f"Retrieved Metadata  : {len(results['metadatas'][0])}")
+        print(f"Retrieved Distances : {len(results['distances'][0])}")
+
+        print("=" * 80)
+        print(f"{'#':<4} {'Distance':<12} {'Title'}")
+        print("=" * 80)
+
+        for i, (doc, meta, distance) in enumerate(
+            zip(
+                results["documents"][0],
+                results["metadatas"][0],
+                results["distances"][0]
+            ),
             start=1
         ):
+
             print(
-                f"{i:2d}. Distance = {distance:.6f} | {meta['title']}"
+                f"{i:<4} {distance:<12.6f} {meta.get('title', 'Unknown')}"
             )
 
-        print("=" * 80)
+            print("Chunk Preview:")
+            print(doc[:200].replace("\n", " "))
+            print("-" * 80)
 
         return results

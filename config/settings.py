@@ -12,18 +12,10 @@ class Settings(BaseSettings):
  # ==========================
     # openrouter
     # ==========================
-    
+    LLM_PROVIDER: str
     OPENROUTER_API_KEY: str
     OPENROUTER_MODEL: str
-    LLM_PROVIDER: str
-
-
-    # ==========================
-    # Files
-    # ==========================
-    PDF_PATH: str
-    VECTOR_DB_PATH: str
-
+    
     # ==========================
     # Embedding
     # ==========================
@@ -33,6 +25,13 @@ class Settings(BaseSettings):
     # Book
     # ==========================
     BOOK_NAME: str
+
+    # ==========================
+    # Files
+    # ==========================
+    PDF_PATH: str
+    VECTOR_DB_PATH: str
+
     # Context Builder
     CONTEXT_WORD_BUDGET: int
     SIMILARITY_THRESHOLD: float
@@ -49,7 +48,9 @@ class Settings(BaseSettings):
     TOP_K: int
     FINAL_TOP_K: int
 
-
+    # Context Builder
+    CONTEXT_WORD_BUDGET: int
+    SIMILARITY_THRESHOLD: float
 
     # ==========================
     # LLM
