@@ -28,12 +28,14 @@ class ContextBuilder:
         for document, metadata in zip(documents, metadatas):
 
             title = metadata.get("title", "")
+            print("TITLE =", title)
 
             # -----------------------------------
             # Ignore Table of Contents
             # -----------------------------------
 
             if "Table of Contents" in title:
+                print("SKIPPED TOC")
                 continue
 
             # -----------------------------------
@@ -41,6 +43,7 @@ class ContextBuilder:
             # -----------------------------------
 
             if chapter_counter.get(title, 0) >= 2:
+                print(f"SKIPPED CHAPTER: {title}")
                 continue
 
             words = len(document.split())
