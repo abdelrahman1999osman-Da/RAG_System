@@ -35,6 +35,11 @@ class RAGPipeline:
         # 1. Retrieve
         # -----------------------------
         results = self.retriever.search(question)
+        print("=" * 80)
+        print("QUESTION:", question)
+        print("RETRIEVED DOCS:", len(results["documents"][0]))
+        print("=" * 80)
+
 
 
         if (
